@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.VBox?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../../style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.makery.address.controller.CharacterSelectionController">
-    <VBox alignment="CENTER" spacing="20.0" styleClass="vbox" stylesheets="@../../../../style.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
-        <Label styleClass="label" stylesheets="@../../../../style.css" text="Select Your Character" />
+    <VBox alignment="CENTER" spacing="20.0" styleClass="vbox" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" prefWidth="580.0" prefHeight="380.0">
+        <Label styleClass="label" text="Select Your Character" />
 
-        <HBox alignment="CENTER" spacing="10.0" styleClass="hbox" stylesheets="@../../../../style.css">
-            <VBox alignment="CENTER" spacing="10.0" styleClass="vbox">
+        <HBox alignment="CENTER" spacing="10.0" styleClass="hbox">
+            <VBox alignment="CENTER" spacing="10.0" styleClass="vbox" prefWidth="150.0" prefHeight="150.0">
                 <Button fx:id="characterButton" onAction="#handleCharacterSelection" styleClass="button" text="Logan" />
                 <ImageView fitHeight="100.0" fitWidth="100.0" styleClass="image-view">
                     <image>
@@ -21,16 +21,18 @@
                     </image>
                 </ImageView>
             </VBox>
-            <VBox alignment="TOP_LEFT" spacing="5.0" styleClass="vbox">
+            <VBox alignment="TOP_LEFT" spacing="5.0" styleClass="vbox" prefWidth="450.0" prefHeight="150.0">
                 <Label styleClass="label" text="Cash: 10,000" />
                 <Label styleClass="label" text="Bank: 0" />
                 <Label styleClass="label" text="Debt: 0" />
-                <Label styleClass="label" text="Character 1 is a brave warrior with unmatched strength and agility." />
+                <VBox>
+                    <Label styleClass="label" text="Logan is a seasoned caravan leader who once traversed the harshest routes, earning a reputation as seasoned trader" wrapText="true" />
+                </VBox>
             </VBox>
         </HBox>
 
-        <HBox alignment="CENTER" spacing="10.0" styleClass="hbox" stylesheets="@../../../../style.css">
-            <VBox alignment="CENTER" spacing="10.0" styleClass="vbox" stylesheets="@../../../../style.css">
+        <HBox alignment="CENTER" spacing="10.0" styleClass="hbox">
+            <VBox alignment="CENTER" spacing="10.0" styleClass="vbox" prefWidth="150.0" prefHeight="150.0">
                 <Button fx:id="characterButton2" onAction="#handleCharacterSelection" styleClass="button" text="Adia" />
                 <ImageView fitHeight="100.0" fitWidth="100.0" styleClass="image-view">
                     <image>
@@ -38,16 +40,18 @@
                     </image>
                 </ImageView>
             </VBox>
-            <VBox alignment="TOP_LEFT" spacing="5.0" styleClass="vbox" stylesheets="@../../../../style.css">
-                <Label styleClass="label" stylesheets="@../../../../style.css" text="Cash: 15,000" />
-                <Label styleClass="label" stylesheets="@../../../../style.css" text="Bank: 0" />
-                <Label styleClass="label" stylesheets="@../../../../style.css" text="Debt: 9,000" />
-                <Label styleClass="label" stylesheets="@../../../../style.css" text="Character 2 is a skilled archer with exceptional agility and precision." />
+            <VBox alignment="TOP_LEFT" spacing="5.0" styleClass="vbox" prefWidth="450.0" prefHeight="150.0">
+                <Label styleClass="label" text="Cash: 15,000" />
+                <Label styleClass="label" text="Bank: 0" />
+                <Label styleClass="label" text="Debt: 9,000" />
+                <VBox>
+                    <Label styleClass="label" text="Adia, a former noble turned mercenary, is as sharp with her mind as she is with her blade." wrapText="true" />
+                </VBox>
             </VBox>
         </HBox>
 
-        <HBox alignment="CENTER" spacing="10.0" styleClass="hbox" stylesheets="@../../../../style.css">
-            <VBox alignment="CENTER" spacing="10.0" styleClass="vbox">
+        <HBox alignment="CENTER" spacing="10.0" styleClass="hbox">
+            <VBox alignment="CENTER" spacing="10.0" styleClass="vbox" prefWidth="150.0" prefHeight="150.0">
                 <Button fx:id="characterButton3" onAction="#handleCharacterSelection" styleClass="button" text="Polin" />
                 <ImageView fitHeight="100.0" fitWidth="100.0" styleClass="image-view">
                     <image>
@@ -55,11 +59,13 @@
                     </image>
                 </ImageView>
             </VBox>
-            <VBox alignment="TOP_LEFT" spacing="5.0" styleClass="vbox">
+            <VBox alignment="TOP_LEFT" spacing="5.0" styleClass="vbox" prefWidth="450.0" prefHeight="150.0">
                 <Label styleClass="label" text="Cash: 5,000" />
                 <Label styleClass="label" text="Bank: 20,000" />
                 <Label styleClass="label" text="Debt: 0" />
-                <Label styleClass="label" text="Character 3 is a wise mage with powerful spells and high endurance." />
+                <VBox>
+                    <Label styleClass="label" text="Polin is a fresh face in the caravan trade, driven more by ambition than experience." wrapText="true" />
+                </VBox>
             </VBox>
         </HBox>
 
