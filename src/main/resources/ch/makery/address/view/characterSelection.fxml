@@ -5,38 +5,63 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.makery.address.controller.CharacterSelectionController">
-    <VBox alignment="CENTER" spacing="20.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
-        <Label text="Select Your Character" />
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../../style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.makery.address.controller.CharacterSelectionController">
+    <VBox alignment="CENTER" spacing="20.0" styleClass="vbox" stylesheets="@../../../../style.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+        <Label styleClass="label" stylesheets="@../../../../style.css" text="Select Your Character" />
 
-        <VBox alignment="CENTER" spacing="10.0">
-            <Button fx:id="characterButton" onAction="#handleCharacterSelection" text="Character 1" />
-            <ImageView fitHeight="100.0" fitWidth="100.0">
-                <image>
-                    <Image url="@../../../../assets/avatar1.png" />
-                </image>
-            </ImageView>
-        </VBox>
+        <HBox alignment="CENTER" spacing="10.0" styleClass="hbox" stylesheets="@../../../../style.css">
+            <VBox alignment="CENTER" spacing="10.0" styleClass="vbox">
+                <Button fx:id="characterButton" onAction="#handleCharacterSelection" styleClass="button" text="Logan" />
+                <ImageView fitHeight="100.0" fitWidth="100.0" styleClass="image-view">
+                    <image>
+                        <Image url="@../../../../assets/avatar1.png" />
+                    </image>
+                </ImageView>
+            </VBox>
+            <VBox alignment="TOP_LEFT" spacing="5.0" styleClass="vbox">
+                <Label styleClass="label" text="Cash: 10,000" />
+                <Label styleClass="label" text="Bank: 0" />
+                <Label styleClass="label" text="Debt: 0" />
+                <Label styleClass="label" text="Character 1 is a brave warrior with unmatched strength and agility." />
+            </VBox>
+        </HBox>
 
-        <VBox alignment="CENTER" spacing="10.0">
-            <Button fx:id="characterButton2" onAction="#handleCharacterSelection" text="Character 2" />
-            <ImageView fitHeight="100.0" fitWidth="100.0">
-                <image>
-                    <Image url="@../../../../assets/avatar2.png" />
-                </image>
-            </ImageView>
-        </VBox>
+        <HBox alignment="CENTER" spacing="10.0" styleClass="hbox" stylesheets="@../../../../style.css">
+            <VBox alignment="CENTER" spacing="10.0" styleClass="vbox" stylesheets="@../../../../style.css">
+                <Button fx:id="characterButton2" onAction="#handleCharacterSelection" styleClass="button" text="Adia" />
+                <ImageView fitHeight="100.0" fitWidth="100.0" styleClass="image-view">
+                    <image>
+                        <Image url="@../../../../assets/avatar2.png" />
+                    </image>
+                </ImageView>
+            </VBox>
+            <VBox alignment="TOP_LEFT" spacing="5.0" styleClass="vbox" stylesheets="@../../../../style.css">
+                <Label styleClass="label" stylesheets="@../../../../style.css" text="Cash: 15,000" />
+                <Label styleClass="label" stylesheets="@../../../../style.css" text="Bank: 0" />
+                <Label styleClass="label" stylesheets="@../../../../style.css" text="Debt: 9,000" />
+                <Label styleClass="label" stylesheets="@../../../../style.css" text="Character 2 is a skilled archer with exceptional agility and precision." />
+            </VBox>
+        </HBox>
 
-        <VBox alignment="CENTER" spacing="10.0">
-            <Button fx:id="characterButton3" onAction="#handleCharacterSelection" text="Character 3" />
-            <ImageView fitHeight="100.0" fitWidth="100.0">
-                <image>
-                    <Image url="@../../../../assets/avatar3.png" />
-                </image>
-            </ImageView>
-        </VBox>
+        <HBox alignment="CENTER" spacing="10.0" styleClass="hbox" stylesheets="@../../../../style.css">
+            <VBox alignment="CENTER" spacing="10.0" styleClass="vbox">
+                <Button fx:id="characterButton3" onAction="#handleCharacterSelection" styleClass="button" text="Polin" />
+                <ImageView fitHeight="100.0" fitWidth="100.0" styleClass="image-view">
+                    <image>
+                        <Image url="@../../../../assets/avatar3.png" />
+                    </image>
+                </ImageView>
+            </VBox>
+            <VBox alignment="TOP_LEFT" spacing="5.0" styleClass="vbox">
+                <Label styleClass="label" text="Cash: 5,000" />
+                <Label styleClass="label" text="Bank: 20,000" />
+                <Label styleClass="label" text="Debt: 0" />
+                <Label styleClass="label" text="Character 3 is a wise mage with powerful spells and high endurance." />
+            </VBox>
+        </HBox>
 
     </VBox>
 </AnchorPane>

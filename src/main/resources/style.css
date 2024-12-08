@@ -1,0 +1,39 @@
+.root {
+    -fx-font-family: "Arial";
+    -fx-background-color: #2E2E2E;
+}
+
+.label {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 14px;
+}
+
+.button {
+    -fx-background-color: green;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+}
+
+.button:hover {
+    -fx-background-color: #45A049;
+}
+
+.image-view {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.8), 10, 0.5, 0, 0);
+}
+
+.vbox {
+    -fx-background-color: #3E3E3E;
+    -fx-padding: 10px;
+    -fx-border-color: gold;
+    -fx-border-width: 2px;
+}
+
+.vbox .label {
+    -fx-text-fill: white;
+}
+
+.hbox {
+    -fx-padding: 10px;
+}
