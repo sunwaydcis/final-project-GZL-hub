@@ -14,5 +14,6 @@ object MyApp extends JFXApp3:
     stage = new PrimaryStage:
       title = "Trading Game"
       scene = new Scene(new Pane(root))
+      fullScreen = true
 
 end MyApp
