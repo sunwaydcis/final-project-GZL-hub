@@ -12,38 +12,29 @@
         <Label text="Select Your Character" />
 
         <VBox alignment="CENTER" spacing="10.0">
-            <Button text="Character 1" onAction="#handleCharacterSelection" />
+            <Button onAction="#handleCharacterSelection" text="Character 1" />
             <ImageView fitHeight="100.0" fitWidth="100.0">
                 <image>
-                    <Image url="@../../../../assets/character1.png" />
+                    <Image url="@../../../../assets/avatar1.png" />
                 </image>
-                <clip>
-                    <Circle centerX="50" centerY="50" radius="50" />
-                </clip>
             </ImageView>
         </VBox>
 
         <VBox alignment="CENTER" spacing="10.0">
-            <Button text="Character 2" onAction="#handleCharacterSelection" />
+            <Button onAction="#handleCharacterSelection" text="Character 2" />
             <ImageView fitHeight="100.0" fitWidth="100.0">
                 <image>
-                    <Image url="@../../../../assets/character2.png" />
+                    <Image url="@../../../../assets/avatar2.png" />
                 </image>
-                <clip>
-                    <Circle centerX="50" centerY="50" radius="50" />
-                </clip>
             </ImageView>
         </VBox>
 
         <VBox alignment="CENTER" spacing="10.0">
-            <Button text="Character 3" onAction="#handleCharacterSelection" />
+            <Button onAction="#handleCharacterSelection" text="Character 3" />
             <ImageView fitHeight="100.0" fitWidth="100.0">
                 <image>
-                    <Image url="@../../../../assets/character3.png" />
+                    <Image url="@../../../../assets/avatar3.png" />
                 </image>
-                <clip>
-                    <Circle centerX="50" centerY="50" radius="50" />
-                </clip>
             </ImageView>
         </VBox>
 
