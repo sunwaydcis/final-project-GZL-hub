@@ -31,17 +31,17 @@
                 </VBox>
             <ImageView fitHeight="235.0" fitWidth="382.0" layoutX="13.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/background.png" />
+                  <Image url="@../../../../assets/background.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="26.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/market1.png" />
+                  <Image url="@../../../../assets/market1.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="130.0" fitWidth="200.0" layoutX="191.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/bank1.png" />
+                  <Image url="@../../../../assets/bank1.png" />
                </image>
             </ImageView>
             </children>
