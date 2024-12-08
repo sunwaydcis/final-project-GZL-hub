@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.makery.address.controller.CharacterSelectionController">
+    <VBox alignment="CENTER" spacing="20.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+        <Label text="Select Your Character" />
+
+        <VBox alignment="CENTER" spacing="10.0">
+            <Button text="Character 1" onAction="#handleCharacterSelection" />
+            <ImageView fitHeight="100.0" fitWidth="100.0">
+                <image>
+                    <Image url="@../../../../assets/character1.png" />
+                </image>
+                <clip>
+                    <Circle centerX="50" centerY="50" radius="50" />
+                </clip>
+            </ImageView>
+        </VBox>
+
+        <VBox alignment="CENTER" spacing="10.0">
+            <Button text="Character 2" onAction="#handleCharacterSelection" />
+            <ImageView fitHeight="100.0" fitWidth="100.0">
+                <image>
+                    <Image url="@../../../../assets/character2.png" />
+                </image>
+                <clip>
+                    <Circle centerX="50" centerY="50" radius="50" />
+                </clip>
+            </ImageView>
+        </VBox>
+
+        <VBox alignment="CENTER" spacing="10.0">
+            <Button text="Character 3" onAction="#handleCharacterSelection" />
+            <ImageView fitHeight="100.0" fitWidth="100.0">
+                <image>
+                    <Image url="@../../../../assets/character3.png" />
+                </image>
+                <clip>
+                    <Circle centerX="50" centerY="50" radius="50" />
+                </clip>
+            </ImageView>
+        </VBox>
+
+    </VBox>
+</AnchorPane>
