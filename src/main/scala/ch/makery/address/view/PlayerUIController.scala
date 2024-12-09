@@ -1,18 +1,21 @@
 package ch.makery.address.controller
 
 import javafx.fxml.FXML
-import javafx.scene.control.TextArea
 
 class PlayerUIController {
 
   @FXML
-  private var locationLog: TextArea = _
+  def handleGoToBank(): Unit = {
+    // Placeholder for testing
+  }
 
   @FXML
-  private var goodsLog: TextArea = _
+  def handleGoToMarket(): Unit = {
+    // Placeholder for testing
+  }
 
   @FXML
-  private var profitLossLog: TextArea = _
-
-  // test
+  def handleGoToMoneylender(): Unit = {
+    // Placeholder for testing
+  }
 }
