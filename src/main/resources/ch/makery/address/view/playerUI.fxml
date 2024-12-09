@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.makery.address.controller.PlayerUIController">
-    <HBox spacing="10.0" style="-fx-border-color: black;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../../style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.makery.address.controller.PlayerUIController">
+    <HBox spacing="10.0" style="-fx-border-color: black;" stylesheets="@../../../../style.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
         <!-- Left Toolbox -->
-        <VBox prefHeight="380.0" prefWidth="209.0" spacing="10.0">
+        <VBox prefHeight="380.0" prefWidth="209.0" spacing="10.0" stylesheets="@../../../../style.css">
             <Label text="User Portrait (Character)" />
             <Label text="Cash:" />
             <Label text="Bank:" />
@@ -20,31 +17,12 @@
         </VBox>
 
         <!-- Right Map -->
-        <Pane fx:id="mapPane" prefHeight="380.0" prefWidth="455.0" style="-fx-background-color: lightgray; -fx-background-size: cover;" VBox.vgrow="ALWAYS">
-            <children>
-                <VBox fx:id="gamelog" alignment="BOTTOM_CENTER" layoutX="13.0" layoutY="244.0" prefHeight="78.0" prefWidth="382.0" style="-fx-background-color: cyan;">
-                    <children>
-                        <TextArea fx:id="locationLog" prefHeight="200.0" prefWidth="200.0" />
-                        <TextArea fx:id="goodsLog" prefHeight="200.0" prefWidth="200.0" />
-                        <TextArea fx:id="profitLossLog" prefHeight="200.0" prefWidth="200.0" />
-                    </children>
-                </VBox>
-            <ImageView fitHeight="235.0" fitWidth="382.0" layoutX="13.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../assets/background.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="26.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../assets/market1.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="130.0" fitWidth="200.0" layoutX="191.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../assets/bank1.png" />
-               </image>
-            </ImageView>
-            </children>
-        </Pane>
+        <AnchorPane stylesheets="@../../../../style.css" HBox.hgrow="ALWAYS">
+            <Pane fx:id="mapPane" styleClass="map-pane" stylesheets="@../../../../style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <Label layoutX="50" layoutY="50" styleClass="map-element" text="Bank" />
+                <Label layoutX="150" layoutY="50" styleClass="map-element" text="Market" />
+                <Label layoutX="250" layoutY="50" styleClass="map-element" text="Moneylender" />
+            </Pane>
+        </AnchorPane>
     </HBox>
 </AnchorPane>
