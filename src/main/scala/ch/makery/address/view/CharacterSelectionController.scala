@@ -7,7 +7,7 @@ import javafx.fxml.FXMLLoader
 import javafx.scene.Parent
 import javafx.scene.control.Alert
 import javafx.scene.control.Alert.AlertType
-import ch.makery.address.model.{Character, SelectedCharacter}
+import ch.makery.address.model.{Character, Caravan, SelectedCharacter}
 
 class CharacterSelectionController {
 
@@ -24,11 +24,11 @@ class CharacterSelectionController {
       val source = characterButton.getScene.getFocusOwner.asInstanceOf[Button]
       val selectedCharacter = source.getId match {
         case "characterButton" =>
-          Character("Logan", 10000, 0, 0, "Logan is a seasoned caravan leader who once traversed the harshest routes, earning a reputation as seasoned trader")
+          Character("Logan", 10000, 0, 0, Caravan())
         case "characterButton2" =>
-          Character("Adia", 15000, 0, 9000, "Adia, a former noble turned mercenary, is as sharp with her mind as she is with her blade.")
+          Character("Adia", 15000, 0, 9000, Caravan())
         case "characterButton3" =>
-          Character("Polin", 5000, 20000, 0, "Polin is a fresh face in the caravan trade, driven more by ambition than experience.")
+          Character("Polin", 5000, 20000, 0, Caravan())
       }
 
       // Store the selected character in the singleton object
