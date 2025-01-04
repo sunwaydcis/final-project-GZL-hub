@@ -12,9 +12,9 @@
         <!-- Left Toolbox -->
         <VBox prefHeight="380.0" prefWidth="209.0" spacing="10.0" stylesheets="@../../../../style.css">
             <Label text="User Portrait (Character)" />
-            <Label text="Cash:" />
-            <Label text="Bank:" />
-            <Label text="Debt:" />
+            <Label fx:id="cashLabel" text="Cash:" />
+            <Label fx:id="bankLabel" text="Bank:" />
+            <Label fx:id="debtLabel" text="Debt:" />
         </VBox>
 
         <!-- Right Map -->
