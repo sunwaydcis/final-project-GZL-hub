@@ -39,6 +39,10 @@
             <Label text="Debt:" />
             <Label fx:id="debtLabel" text="0" />
         </HBox>
+        <HBox spacing="10.0">
+            <Label text="Cargo:" />
+            <Label fx:id="cargoLabel" text="0/100" />
+        </HBox>
         <Label fx:id="errorMessageLabel" text="" style="-fx-text-fill: red;" />
         <Button fx:id="backButton" onAction="#handleBack" text="Back" />
     </VBox>

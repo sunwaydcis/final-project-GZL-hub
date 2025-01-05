@@ -24,11 +24,11 @@ class CharacterSelectionController {
       val source = characterButton.getScene.getFocusOwner.asInstanceOf[Button]
       val selectedCharacter = source.getId match {
         case "characterButton" =>
-          Character("Logan", 10000, 0, 0, Caravan())
+          Character("Logan", 10000, 0, 0, Caravan(0))
         case "characterButton2" =>
-          Character("Adia", 15000, 0, 9000, Caravan())
+          Character("Adia", 15000, 0, 9000, Caravan(0))
         case "characterButton3" =>
-          Character("Polin", 5000, 20000, 0, Caravan())
+          Character("Polin", 5000, 20000, 0, Caravan(0))
       }
 
       // Store the selected character in the singleton object

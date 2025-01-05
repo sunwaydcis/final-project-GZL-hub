@@ -28,6 +28,8 @@ class MarketController {
   private var bankLabel: Label = _
   @FXML
   private var debtLabel: Label = _
+  @FXML
+  private var cargoLabel: Label = _
 
   @FXML
   private var backButton: Button = _
@@ -36,9 +38,13 @@ class MarketController {
   private var errorMessageLabel: Label = _
 
   private val items: ObservableList[Item] = FXCollections.observableArrayList(
-    Item("Apple", 10, 100),
-    Item("Banana", 5, 200),
-    Item("Orange", 8, 150)
+    Item("Tea", 10, 2500),
+    Item("Fish", 20, 2000),
+    Item("Parchment", 100, 1000),
+    Item("Silk", 500, 1000),
+    Item("Spices", 1250, 500),
+    Item("Gunpowder", 5000, 500),
+    Item("Angel Dust", 10000, 100)
   )
 
   private var selectedCharacter: Option[Character] = _
@@ -61,6 +67,7 @@ class MarketController {
       cashLabel.setText(s"Cash: ${character.cash}")
       bankLabel.setText(s"Bank: ${character.bank}")
       debtLabel.setText(s"Debt: ${character.debt}")
+      cargoLabel.setText(s"Cargo: ${character.caravan.currentSize}/${character.caravan.maxSize}")
     }
   }
 
@@ -73,16 +80,22 @@ class MarketController {
         val totalCost = selectedItem.price * quantity
         if (character.cash >= totalCost) {
           if (selectedItem.quantity >= quantity) {
-            val updatedItem = selectedItem.copy(quantity = selectedItem.quantity - quantity)
-            items.set(items.indexOf(selectedItem), updatedItem)
-            val updatedCharacter = character.copy(
-              cash = character.cash - totalCost,
-              caravan = character.caravan.copy(currentSize = character.caravan.currentSize + quantity)
-            )
-            SelectedCharacter.character = Some(updatedCharacter)
-            updateCharacterStats()
-            itemListView.refresh()
-            errorMessageLabel.setText("") // Clear any previous error message
+            if (character.caravan.currentSize + quantity <= character.caravan.maxSize) {
+              val updatedItem = selectedItem.copy(quantity = selectedItem.quantity - quantity)
+              items.set(items.indexOf(selectedItem), updatedItem)
+              val updatedCharacter = character.copy(
+                cash = character.cash - totalCost,
+                caravan = character.caravan.copy(currentSize = character.caravan.currentSize + quantity)
+              )
+              SelectedCharacter.character = Some(updatedCharacter)
+              selectedCharacter = Some(updatedCharacter)
+              updateCharacterStats()
+              itemListView.refresh()
+              errorMessageLabel.setText("") // Clear any previous error message
+            } else {
+              errorMessageLabel.setText("Not enough cargo space available.")
+              errorMessageLabel.setStyle("-fx-text-fill: red;")
+            }
           } else {
             errorMessageLabel.setText("Not enough stock available.")
             errorMessageLabel.setStyle("-fx-text-fill: red;")
@@ -96,7 +109,7 @@ class MarketController {
   }
 
   @FXML
-  def handleSell(): Unit = {
+  private def handleSell(): Unit = {
     val selectedItem = itemListView.getSelectionModel.getSelectedItem
     val quantity = itemQuantityField.getText.toInt
     if (selectedItem != null && quantity > 0) {
@@ -104,9 +117,12 @@ class MarketController {
       items.set(items.indexOf(selectedItem), updatedItem)
       selectedCharacter.foreach { character =>
         val updatedCharacter = character.copy(
+          cash = character.cash + (selectedItem.price * quantity),
           caravan = character.caravan.copy(currentSize = (character.caravan.currentSize - quantity).max(0))
         )
         SelectedCharacter.character = Some(updatedCharacter)
+        selectedCharacter = Some(updatedCharacter)
+        updateCharacterStats()
       }
       itemListView.refresh()
     }
