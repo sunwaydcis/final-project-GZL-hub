@@ -17,7 +17,7 @@
                 <Button fx:id="characterButton" onAction="#handleCharacterSelection" styleClass="button" text="Logan" />
                 <ImageView fitHeight="100.0" fitWidth="100.0" styleClass="image-view">
                     <image>
-                        <Image url="@../../../../assets/avatar1.png" />
+                        <Image url="@../../../../assets/logan.png" />
                     </image>
                 </ImageView>
             </VBox>
@@ -36,7 +36,7 @@
                 <Button fx:id="characterButton2" onAction="#handleCharacterSelection" styleClass="button" text="Adia" />
                 <ImageView fitHeight="100.0" fitWidth="100.0" styleClass="image-view">
                     <image>
-                        <Image url="@../../../../assets/avatar2.png" />
+                        <Image url="@../../../../assets/adia.png" />
                     </image>
                 </ImageView>
             </VBox>
@@ -55,7 +55,7 @@
                 <Button fx:id="characterButton3" onAction="#handleCharacterSelection" styleClass="button" text="Polin" />
                 <ImageView fitHeight="100.0" fitWidth="100.0" styleClass="image-view">
                     <image>
-                        <Image url="@../../../../assets/avatar3.png" />
+                        <Image url="@../../../../assets/polin.png" />
                     </image>
                 </ImageView>
             </VBox>

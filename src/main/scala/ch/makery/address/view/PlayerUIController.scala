@@ -37,7 +37,7 @@ class PlayerUIController {
       val cargoItems = character.caravan.items.map(item => s"${item.quantity} ${item.name}")
       cargoListView.setItems(FXCollections.observableArrayList(cargoItems: _*))
       // Set the avatar image
-      val imagePath = s"/assets/avatar1.png" // Adjusted path
+      val imagePath = s"/assets/${character.name.toLowerCase}.png" // Use character name for the image path
       val imageStream = getClass.getResourceAsStream(imagePath)
       println(s"Loading image from path: $imagePath")
       if (imageStream != null) {
