@@ -71,17 +71,22 @@ class MarketController {
     if (selectedItem != null && quantity > 0) {
       selectedCharacter.foreach { character =>
         val totalCost = selectedItem.price * quantity
-        if (character.cash >= totalCost && character.caravan.canAddItem(quantity)) {
-          val updatedItem = selectedItem.copy(quantity = selectedItem.quantity - quantity)
-          items.set(items.indexOf(selectedItem), updatedItem)
-          val updatedCharacter = character.copy(
-            cash = character.cash - totalCost,
-            caravan = character.caravan.copy(currentSize = character.caravan.currentSize + quantity)
-          )
-          SelectedCharacter.character = Some(updatedCharacter)
-          updateCharacterStats()
-          itemListView.refresh()
-          errorMessageLabel.setText("") // Clear any previous error message
+        if (character.cash >= totalCost) {
+          if (selectedItem.quantity >= quantity) {
+            val updatedItem = selectedItem.copy(quantity = selectedItem.quantity - quantity)
+            items.set(items.indexOf(selectedItem), updatedItem)
+            val updatedCharacter = character.copy(
+              cash = character.cash - totalCost,
+              caravan = character.caravan.copy(currentSize = character.caravan.currentSize + quantity)
+            )
+            SelectedCharacter.character = Some(updatedCharacter)
+            updateCharacterStats()
+            itemListView.refresh()
+            errorMessageLabel.setText("") // Clear any previous error message
+          } else {
+            errorMessageLabel.setText("Not enough stock available.")
+            errorMessageLabel.setStyle("-fx-text-fill: red;")
+          }
         } else {
           errorMessageLabel.setText("You do not have enough cash to make this purchase.")
           errorMessageLabel.setStyle("-fx-text-fill: red;")
@@ -95,7 +100,7 @@ class MarketController {
     val selectedItem = itemListView.getSelectionModel.getSelectedItem
     val quantity = itemQuantityField.getText.toInt
     if (selectedItem != null && quantity > 0) {
-      val updatedItem = selectedItem.copy(quantity = selectedItem.quantity + quantity)
+      val updatedItem = selectedItem.copy(quantity = (selectedItem.quantity + quantity).min(200))
       items.set(items.indexOf(selectedItem), updatedItem)
       selectedCharacter.foreach { character =>
         val updatedCharacter = character.copy(
