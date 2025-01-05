@@ -1,16 +1,23 @@
 package ch.makery.address.controller
 
 import javafx.fxml.{FXML, FXMLLoader}
-import javafx.scene.control.{Alert, Button, Label, ListView, TextField}
-import javafx.collections.{FXCollections, ObservableList}
+import javafx.scene.control.{Button, Label, TableColumn, TableView, TextField}
+import javafx.collections.ObservableList
 import javafx.scene.Parent
 import javafx.stage.Stage
-import ch.makery.address.model.{Character, Item, SelectedCharacter}
+import ch.makery.address.model.{Character, Item, MarketState, SelectedCharacter}
+import javafx.beans.property.SimpleStringProperty
 
 class MarketController {
 
   @FXML
-  private var itemListView: ListView[Item] = _
+  private var itemTableView: TableView[Item] = _
+  @FXML
+  private var itemNameColumn: TableColumn[Item, String] = _
+  @FXML
+  private var itemPriceColumn: TableColumn[Item, String] = _
+  @FXML
+  private var itemQuantityColumn: TableColumn[Item, String] = _
   @FXML
   private var itemNameLabel: Label = _
   @FXML
@@ -37,15 +44,7 @@ class MarketController {
   @FXML
   private var errorMessageLabel: Label = _
 
-  private val items: ObservableList[Item] = FXCollections.observableArrayList(
-    Item("Tea", 10, 2500),
-    Item("Fish", 20, 2000),
-    Item("Parchment", 100, 1000),
-    Item("Silk", 500, 1000),
-    Item("Spices", 1250, 500),
-    Item("Gunpowder", 5000, 500),
-    Item("Angel Dust", 10000, 100)
-  )
+  private val items: ObservableList[Item] = MarketState.items
 
   private var selectedCharacter: Option[Character] = _
 
@@ -53,8 +52,12 @@ class MarketController {
     selectedCharacter = SelectedCharacter.character
     updateCharacterStats()
 
-    itemListView.setItems(items)
-    itemListView.getSelectionModel.selectedItemProperty.addListener((_, _, selectedItem) => {
+    itemTableView.setItems(items)
+    itemNameColumn.setCellValueFactory(cellData => new SimpleStringProperty(cellData.getValue.name))
+    itemPriceColumn.setCellValueFactory(cellData => new SimpleStringProperty(cellData.getValue.price.toString))
+    itemQuantityColumn.setCellValueFactory(cellData => new SimpleStringProperty(cellData.getValue.quantity.toString))
+
+    itemTableView.getSelectionModel.selectedItemProperty.addListener((_, _, selectedItem) => {
       if (selectedItem != null) {
         itemNameLabel.setText(selectedItem.name)
         itemPriceLabel.setText(s"Price: ${selectedItem.price}")
@@ -64,7 +67,7 @@ class MarketController {
 
   private def updateCharacterStats(): Unit = {
     selectedCharacter.foreach { character =>
-      cashLabel.setText(s"Cash: ${character.cash}")
+      cashLabel.setText(s"${character.cash}")
       bankLabel.setText(s"Bank: ${character.bank}")
       debtLabel.setText(s"Debt: ${character.debt}")
       cargoLabel.setText(s"Cargo: ${character.caravan.currentSize}/${character.caravan.maxSize}")
@@ -73,7 +76,7 @@ class MarketController {
 
   @FXML
   private def handleBuy(): Unit = {
-    val selectedItem = itemListView.getSelectionModel.getSelectedItem
+    val selectedItem = itemTableView.getSelectionModel.getSelectedItem
     val quantity = itemQuantityField.getText.toInt
     if (selectedItem != null && quantity > 0) {
       selectedCharacter.foreach { character =>
@@ -90,7 +93,7 @@ class MarketController {
               SelectedCharacter.character = Some(updatedCharacter)
               selectedCharacter = Some(updatedCharacter)
               updateCharacterStats()
-              itemListView.refresh()
+              itemTableView.refresh()
               errorMessageLabel.setText("") // Clear any previous error message
             } else {
               errorMessageLabel.setText("Not enough cargo space available.")
@@ -110,7 +113,7 @@ class MarketController {
 
   @FXML
   private def handleSell(): Unit = {
-    val selectedItem = itemListView.getSelectionModel.getSelectedItem
+    val selectedItem = itemTableView.getSelectionModel.getSelectedItem
     val quantity = itemQuantityField.getText.toInt
     if (selectedItem != null && quantity > 0) {
       val updatedItem = selectedItem.copy(quantity = (selectedItem.quantity + quantity).min(200))
@@ -124,7 +127,7 @@ class MarketController {
         selectedCharacter = Some(updatedCharacter)
         updateCharacterStats()
       }
-      itemListView.refresh()
+      itemTableView.refresh()
     }
   }
 

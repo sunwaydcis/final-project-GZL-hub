@@ -47,7 +47,6 @@ class CharacterSelectionController {
         alert.setHeaderText("Failed to load the game scene")
         alert.setContentText(e.getMessage)
         alert.showAndWait()
-        e.printStackTrace() // Log the stack trace for debugging
     }
   }
 }
