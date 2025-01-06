@@ -3,7 +3,6 @@ package ch.makery.address.controller
 import javafx.fxml.{FXML, FXMLLoader}
 import javafx.scene.control.{Label, ListView}
 import javafx.scene.image.{Image, ImageView}
-import javafx.collections.FXCollections
 import ch.makery.address.model.{Character, SelectedCharacter}
 import javafx.scene.Parent
 import javafx.stage.Stage
@@ -19,7 +18,7 @@ class PlayerUIController {
   @FXML
   private var debtLabel: Label = _
   @FXML
-  private var cargoListView: ListView[String] = _
+  private var cargoSizeLabel: Label = _
 
   private var selectedCharacter: Option[Character] = _
 
@@ -34,8 +33,7 @@ class PlayerUIController {
       cashLabel.setText(s"Cash: ${character.cash}")
       bankLabel.setText(s"Bank: ${character.bank}")
       debtLabel.setText(s"Debt: ${character.debt}")
-      val cargoItems = character.caravan.items.map(item => s"${item.quantity} ${item.name}")
-      cargoListView.setItems(FXCollections.observableArrayList(cargoItems: _*))
+      cargoSizeLabel.setText(s"Cargo Size: ${character.caravan.currentSize}/${character.caravan.maxSize}")
       // Set the avatar image
       val imagePath = s"/assets/${character.name.toLowerCase}.png" // Use character name for the image path
       val imageStream = getClass.getResourceAsStream(imagePath)
@@ -69,6 +67,43 @@ class PlayerUIController {
 
   @FXML
   def handleGoToBank(): Unit = {
-    // Implement the logic to go to the bank
+    try {
+      val loader = new FXMLLoader(getClass.getResource("/ch/makery/address/view/bank.fxml"))
+      val root = loader.load[Parent]
+      val stage = cashLabel.getScene.getWindow.asInstanceOf[Stage]
+      stage.getScene.setRoot(root)
+    } catch {
+      case e: Exception =>
+        e.printStackTrace()
+    }
+  }
+
+  def handlePurchaseItem(itemName: String, quantity: Int): Unit = {
+    selectedCharacter.foreach { character =>
+      // Logic to purchase the item and update the character's cargo
+      val item = character.caravan.items.find(_.name == itemName)
+      item.foreach { i =>
+        i.quantity += quantity
+        character.caravan.currentSize += quantity
+      }
+      // Update the character stats to refresh the cargo size
+      updateCharacterStats()
+    }
+  }
+
+  def handleRemoveItem(itemName: String, quantity: Int): Unit = {
+    selectedCharacter.foreach { character =>
+      // Logic to remove the item and update the character's cargo
+      val item = character.caravan.items.find(_.name == itemName)
+      item.foreach { i =>
+        i.quantity -= quantity
+        character.caravan.currentSize -= quantity
+        if (i.quantity <= 0) {
+          character.caravan.items = character.caravan.items.filterNot(_.name == itemName)
+        }
+      }
+      // Update the character stats to refresh the cargo size
+      updateCharacterStats()
+    }
   }
 }

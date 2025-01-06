@@ -86,9 +86,20 @@ class MarketController {
             if (character.caravan.currentSize + quantity <= character.caravan.maxSize) {
               val updatedItem = selectedItem.copy(quantity = selectedItem.quantity - quantity)
               items.set(items.indexOf(selectedItem), updatedItem)
+              val itemInCaravan = character.caravan.items.find(_.name == selectedItem.name)
+              val updatedCaravanItems = itemInCaravan match {
+                case Some(item) => character.caravan.items.map {
+                  case i if i.name == item.name => i.copy(quantity = i.quantity + quantity)
+                  case i => i
+                }
+                case None => character.caravan.items :+ selectedItem.copy(quantity = quantity)
+              }
               val updatedCharacter = character.copy(
                 cash = character.cash - totalCost,
-                caravan = character.caravan.copy(currentSize = character.caravan.currentSize + quantity)
+                caravan = character.caravan.copy(
+                  items = updatedCaravanItems,
+                  currentSize = character.caravan.currentSize + quantity
+                )
               )
               SelectedCharacter.character = Some(updatedCharacter)
               selectedCharacter = Some(updatedCharacter)
@@ -116,18 +127,35 @@ class MarketController {
     val selectedItem = itemTableView.getSelectionModel.getSelectedItem
     val quantity = itemQuantityField.getText.toInt
     if (selectedItem != null && quantity > 0) {
-      val updatedItem = selectedItem.copy(quantity = (selectedItem.quantity + quantity).min(200))
-      items.set(items.indexOf(selectedItem), updatedItem)
       selectedCharacter.foreach { character =>
-        val updatedCharacter = character.copy(
-          cash = character.cash + (selectedItem.price * quantity),
-          caravan = character.caravan.copy(currentSize = (character.caravan.currentSize - quantity).max(0))
-        )
-        SelectedCharacter.character = Some(updatedCharacter)
-        selectedCharacter = Some(updatedCharacter)
-        updateCharacterStats()
+        val itemInCaravan = character.caravan.items.find(_.name == selectedItem.name)
+        itemInCaravan match {
+          case Some(item) if item.quantity >= quantity =>
+            val updatedItem = selectedItem.copy(quantity = selectedItem.quantity + quantity)
+            items.set(items.indexOf(selectedItem), updatedItem)
+            val updatedCharacter = character.copy(
+              cash = character.cash + (selectedItem.price * quantity),
+              caravan = character.caravan.copy(
+                items = character.caravan.items.map {
+                  case i if i.name == item.name => i.copy(quantity = i.quantity - quantity)
+                  case i => i
+                },
+                currentSize = character.caravan.currentSize - quantity
+              )
+            )
+            SelectedCharacter.character = Some(updatedCharacter)
+            selectedCharacter = Some(updatedCharacter)
+            updateCharacterStats()
+            itemTableView.refresh()
+            errorMessageLabel.setText("") // Clear any previous error message
+          case Some(_) =>
+            errorMessageLabel.setText(s"Not enough ${selectedItem.name} in stock.")
+            errorMessageLabel.setStyle("-fx-text-fill: red;")
+          case None =>
+            errorMessageLabel.setText(s"No ${selectedItem.name} in stock.")
+            errorMessageLabel.setStyle("-fx-text-fill: red;")
+        }
       }
-      itemTableView.refresh()
     }
   }
 
