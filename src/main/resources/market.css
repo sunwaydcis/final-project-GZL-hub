@@ -7,18 +7,18 @@
 }
 
 .table-view {
-    -fx-background-color: #3c3f41;
+    -fx-background-color: #ffffff;
     -fx-table-cell-border-color: transparent;
     -fx-padding: 10px;
 }
 
-.table-column-header {
-    -fx-background-color: #4a4a4a;
+.table-view .column-header .label {
+    -fx-background-color: #fff;
     -fx-text-fill: #000;
 }
 
 .label {
-    -fx-text-fill: #ffffff;
+    -fx-text-fill: #fff;
 }
 
 .button {
