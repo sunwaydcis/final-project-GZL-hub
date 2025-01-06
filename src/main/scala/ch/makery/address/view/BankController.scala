@@ -39,11 +39,11 @@ class BankController {
 
   private def generateDialogue(): Unit = {
     val dialogues = Seq(
-      "Welcome to the Myzora Bank!",
+      "Welcome to the Bank!",
       "How can I assist you today?",
       "Need to deposit or withdraw money?",
-      "I heard you're a skilled trader.",
-      "This city has a high demand for silk in December."
+      "Your financial safety is our priority.",
+      "Thank you for banking with us!"
     )
     dialogueLabel.setText(dialogues(Random.nextInt(dialogues.length)))
   }

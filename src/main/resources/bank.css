@@ -1,0 +1,51 @@
+.bank-teller {
+    -fx-border-color: gold;
+    -fx-border-width: 2px;
+    -fx-padding: 5px;
+}
+
+.dialogue-bubble {
+    -fx-background-color: lightyellow;
+    -fx-padding: 10px;
+    -fx-border-color: black;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+.stat-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.amount-field {
+    -fx-font-size: 14px;
+    -fx-padding: 5px;
+}
+
+.action-button {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 10px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+.message-label {
+    -fx-text-fill: red;
+    -fx-font-size: 12px;
+}
+
+.back-button {
+    -fx-background-color: #f44336;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 10px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+.root {
+    -fx-background-color: #4a4a4a;
+}
