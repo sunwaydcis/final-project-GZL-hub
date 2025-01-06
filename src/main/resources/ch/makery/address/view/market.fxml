@@ -9,48 +9,48 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.makery.address.controller.MarketController" stylesheets="@../../../../market.css">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../../market.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.makery.address.controller.MarketController">
     <VBox spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
-        <TableView fx:id="itemTableView" prefHeight="200.0" prefWidth="200.0">
+        <TableView fx:id="itemTableView" prefHeight="87.0" prefWidth="452.0">
             <columns>
                 <TableColumn fx:id="itemNameColumn" text="Item" />
                 <TableColumn fx:id="itemPriceColumn" text="Price" />
                 <TableColumn fx:id="itemQuantityColumn" text="Quantity" />
             </columns>
         </TableView>
-        <HBox spacing="10.0">
+        <HBox alignment="TOP_CENTER" spacing="10.0">
             <Label text="Item:" />
             <Label fx:id="itemNameLabel" text="Select an item" />
         </HBox>
-        <HBox spacing="10.0">
+        <HBox alignment="TOP_CENTER" spacing="10.0">
             <Label text="Price:" />
             <Label fx:id="itemPriceLabel" text="Select an item" />
         </HBox>
-        <HBox spacing="10.0">
+        <HBox alignment="TOP_CENTER" spacing="10.0">
             <Label text="Quantity:" />
             <TextField fx:id="itemQuantityField" prefWidth="50.0" />
         </HBox>
-        <HBox spacing="10.0">
+        <HBox alignment="TOP_CENTER" spacing="10.0">
             <Button fx:id="buyButton" onAction="#handleBuy" text="Buy" />
             <Button fx:id="sellButton" onAction="#handleSell" text="Sell" />
         </HBox>
-        <HBox spacing="10.0">
+        <HBox alignment="TOP_CENTER" spacing="10.0">
             <Label text="Cash:" />
             <Label fx:id="cashLabel" text="0" />
         </HBox>
-        <HBox spacing="10.0">
+        <HBox alignment="TOP_CENTER" spacing="10.0">
             <Label text="Bank:" />
             <Label fx:id="bankLabel" text="0" />
         </HBox>
-        <HBox spacing="10.0">
+        <HBox alignment="TOP_CENTER" spacing="10.0">
             <Label text="Debt:" />
             <Label fx:id="debtLabel" text="0" />
         </HBox>
-        <HBox spacing="10.0">
+        <HBox alignment="TOP_CENTER" spacing="10.0">
             <Label text="Cargo:" />
             <Label fx:id="cargoLabel" text="0/100" />
         </HBox>
-        <Label fx:id="errorMessageLabel" text="" style="-fx-text-fill: red;" />
-        <Button fx:id="backButton" onAction="#handleBack" text="Back" />
+        <Button fx:id="backButton" alignment="TOP_CENTER" onAction="#handleBack" text="Back" textAlignment="JUSTIFY" textOverrun="CLIP" />
+        <Label fx:id="errorMessageLabel" alignment="TOP_CENTER" style="-fx-text-fill: red;" text="" />
     </VBox>
 </AnchorPane>
