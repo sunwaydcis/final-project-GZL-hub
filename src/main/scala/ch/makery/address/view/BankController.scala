@@ -5,6 +5,7 @@ import javafx.scene.control.{Button, Label, TextField}
 import javafx.scene.Parent
 import javafx.stage.Stage
 import ch.makery.address.model.{Character, SelectedCharacter}
+import scala.util.Random
 
 class BankController {
 
@@ -17,6 +18,8 @@ class BankController {
   @FXML
   private var messageLabel: Label = _
   @FXML
+  private var dialogueLabel: Label = _
+  @FXML
   private var backButton: Button = _
 
   private var selectedCharacter: Option[Character] = _
@@ -24,6 +27,7 @@ class BankController {
   def initialize(): Unit = {
     selectedCharacter = SelectedCharacter.character
     updateCharacterStats()
+    generateDialogue()
   }
 
   private def updateCharacterStats(): Unit = {
@@ -31,6 +35,17 @@ class BankController {
       cashLabel.setText(s"Cash: ${character.cash}")
       bankLabel.setText(s"Bank: ${character.bank}")
     }
+  }
+
+  private def generateDialogue(): Unit = {
+    val dialogues = Seq(
+      "Welcome to the Myzora Bank!",
+      "How can I assist you today?",
+      "Need to deposit or withdraw money?",
+      "I heard you're a skilled trader.",
+      "This city has a high demand for silk in December."
+    )
+    dialogueLabel.setText(dialogues(Random.nextInt(dialogues.length)))
   }
 
   @FXML
