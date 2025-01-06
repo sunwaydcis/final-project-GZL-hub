@@ -11,7 +11,7 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../../style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.makery.address.controller.PlayerUIController">
     <HBox spacing="10.0" style="-fx-border-color: black;" stylesheets="@../../../../style.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
         <!-- Left Toolbox -->
-        <VBox prefHeight="380.0" prefWidth="209.0" spacing="10.0" stylesheets="@../../../../style.css">
+        <VBox alignment="CENTER" prefHeight="380.0" prefWidth="209.0" spacing="10.0" stylesheets="@../../../../style.css">
             <ImageView fx:id="avatarImageView" fitHeight="100.0" fitWidth="100.0" />
             <Label fx:id="cashLabel" text="Cash:" />
             <Label fx:id="bankLabel" text="Bank:" />

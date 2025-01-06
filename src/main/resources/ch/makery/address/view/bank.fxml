@@ -3,25 +3,25 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.image.Image?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.makery.address.controller.BankController" stylesheets="@../../../../bank.css">
-    <VBox alignment="CENTER" spacing="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.bottomAnchor="10.0">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../../style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.makery.address.controller.BankController">
+    <VBox alignment="CENTER" layoutX="192.0" layoutY="10.0" prefHeight="380.0" prefWidth="216.0" spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="192.0" AnchorPane.rightAnchor="192.0" AnchorPane.topAnchor="10.0">
         <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" styleClass="bank-teller">
             <image>
                 <Image url="@/assets/bankteller.png" />
             </image>
         </ImageView>
-        <Label fx:id="dialogueLabel" text="Welcome to the Bank!" styleClass="dialogue-bubble" />
-        <Label fx:id="cashLabel" text="Cash:" styleClass="stat-label" />
-        <Label fx:id="bankLabel" text="Bank:" styleClass="stat-label" />
+        <Label fx:id="dialogueLabel" styleClass="dialogue-bubble" text="Welcome to the Bank!" />
+        <Label fx:id="cashLabel" styleClass="stat-label" text="Cash:" />
+        <Label fx:id="bankLabel" styleClass="stat-label" text="Bank:" />
         <TextField fx:id="amountField" promptText="Enter amount" styleClass="amount-field" />
-        <Button onAction="#handleDeposit" text="Deposit" styleClass="action-button" />
-        <Button onAction="#handleWithdraw" text="Withdraw" styleClass="action-button" />
-        <Label fx:id="messageLabel" text="" styleClass="message-label" />
-        <Button fx:id="backButton" onAction="#handleBack" text="Back" styleClass="back-button" />
+        <Button onAction="#handleDeposit" styleClass="action-button" text="Deposit" />
+        <Button onAction="#handleWithdraw" styleClass="action-button" text="Withdraw" />
+        <Label fx:id="messageLabel" styleClass="message-label" text="" />
+        <Button fx:id="backButton" onAction="#handleBack" styleClass="back-button" text="Back" />
     </VBox>
 </AnchorPane>
