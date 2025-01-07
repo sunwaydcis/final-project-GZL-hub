@@ -33,6 +33,7 @@
             <Button onAction="#handleGoToMoneylender" prefHeight="30.0" prefWidth="300.0" text="Moneylender" />
             <Button onAction="#handleGoToMarket" prefHeight="30.0" prefWidth="300.0" text="Market" />
             <Button fx:id="setCourseButton" onAction="#handleSetCourse" text="Set Course" />
+            <Label fx:id="marketPricesLabel" styleClass="map-label" text="" />
         </VBox>
     </HBox>
 </AnchorPane>
