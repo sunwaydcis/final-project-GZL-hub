@@ -62,7 +62,15 @@ class PlayerUIController {
 
   @FXML
   def handleGoToMoneylender(): Unit = {
-    // Implement the logic to go to the moneylender
+    try {
+      val loader = new FXMLLoader(getClass.getResource("/ch/makery/address/view/moneylender.fxml"))
+      val root = loader.load[Parent]
+      val stage = cashLabel.getScene.getWindow.asInstanceOf[Stage]
+      stage.getScene.setRoot(root)
+    } catch {
+      case e: Exception =>
+        e.printStackTrace()
+    }
   }
 
   @FXML
