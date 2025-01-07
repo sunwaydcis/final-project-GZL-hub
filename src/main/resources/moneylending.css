@@ -1,0 +1,58 @@
+/* moneylending.css */
+
+.root {
+    -fx-background-color: #2b2b2b;
+}
+
+.label-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+}
+
+.label-subtitle {
+    -fx-font-size: 18px;
+    -fx-text-fill: #ffffff;
+}
+
+.label-value {
+    -fx-font-size: 16px;
+    -fx-text-fill: #ffffff;
+}
+
+.label-error {
+    -fx-text-fill: red;
+    -fx-font-size: 14px;
+}
+
+.button-action {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-padding: 10px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+.button-back {
+    -fx-background-color: #f44336;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-padding: 10px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+.text-field {
+    -fx-font-size: 16px;
+    -fx-padding: 5px;
+    -fx-background-color: #333333;
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #555555;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+.label-stat {
+    -fx-text-fill: #ffffff; /* Changed to white */
+}
