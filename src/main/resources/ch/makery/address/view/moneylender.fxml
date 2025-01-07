@@ -6,28 +6,30 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="ch.makery.address.view.MoneylenderController" spacing="10">
+<VBox alignment="TOP_CENTER" prefHeight="607.0" prefWidth="514.0" spacing="10" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.makery.address.view.MoneylenderController">
     <padding>
-        <Insets top="10" right="10" bottom="10" left="10"/>
+        <Insets bottom="10" left="10" right="10" top="10" />
     </padding>
-    <Label text="Moneylender" style="-fx-font-size: 20px;"/>
-    <Label text="Available Funds:"/>
-    <Label fx:id="availableFundsLabel"/>
-    <Label text="Borrow Amount:"/>
-    <TextField fx:id="borrowAmountField"/>
-    <Button text="Borrow" onAction="#handleBorrow"/>
-    <Label text="Repay Amount:"/>
-    <TextField fx:id="repayAmountField"/>
-    <Button text="Repay" onAction="#handleRepay"/>
-    <Label fx:id="errorMessageLabel" style="-fx-text-fill: red;"/>
-    <Button text="Back" onAction="#handleBack"/>
-    <Label text="Character Stats" style="-fx-font-size: 16px;"/>
-    <Label text="Cash:"/>
-    <Label fx:id="cashLabel"/>
-    <Label text="Bank:"/>
-    <Label fx:id="bankLabel"/>
-    <Label text="Debt:"/>
-    <Label fx:id="debtLabel"/>
-    <Label text="Cargo Size:"/>
-    <Label fx:id="cargoSizeLabel"/>
+    <children>
+        <Label style="-fx-font-size: 20px;" text="Moneylender" />
+        <Label text="Available Funds:" />
+        <Label fx:id="availableFundsLabel" />
+        <Label text="Borrow Amount:" />
+        <TextField fx:id="borrowAmountField" />
+        <Button onAction="#handleBorrow" text="Borrow" />
+        <Label text="Repay Amount:" />
+        <TextField fx:id="repayAmountField" />
+        <Button onAction="#handleRepay" text="Repay" />
+        <Label fx:id="errorMessageLabel" style="-fx-text-fill: red;" />
+        <Button onAction="#handleBack" text="Back" />
+        <Label style="-fx-font-size: 16px;" text="Character Stats" />
+        <Label text="Cash:" />
+        <Label fx:id="cashLabel" />
+        <Label text="Bank:" />
+        <Label fx:id="bankLabel" />
+        <Label text="Debt:" />
+        <Label fx:id="debtLabel" />
+        <Label text="Cargo Size:" />
+        <Label fx:id="cargoSizeLabel" />
+    </children>
 </VBox>
