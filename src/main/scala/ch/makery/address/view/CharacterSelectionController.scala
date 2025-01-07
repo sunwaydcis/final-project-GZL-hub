@@ -41,7 +41,7 @@ class CharacterSelectionController {
       stage.getScene.setRoot(root)
     } catch {
       case e: Exception =>
-        // Show an error alert if the FXML file cannot be loaded
+        // Show an error alert if the FXML file cannot be loaded (Test, Test, Test)
         val alert = new Alert(AlertType.ERROR)
         alert.setTitle("Error")
         alert.setHeaderText("Failed to load the game scene")
