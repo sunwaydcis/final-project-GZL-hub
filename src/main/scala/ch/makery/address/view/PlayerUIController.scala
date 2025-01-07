@@ -114,4 +114,16 @@ class PlayerUIController {
       updateCharacterStats()
     }
   }
+  @FXML
+  private def handleSetCourse(): Unit = {
+    try {
+      val loader = new FXMLLoader(getClass.getResource("/ch/makery/address/view/selectLocation.fxml"))
+      val root = loader.load[Parent]
+      val stage = cashLabel.getScene.getWindow.asInstanceOf[Stage]
+      stage.getScene.setRoot(root)
+    } catch {
+      case e: Exception =>
+        e.printStackTrace()
+    }
+  }
 }

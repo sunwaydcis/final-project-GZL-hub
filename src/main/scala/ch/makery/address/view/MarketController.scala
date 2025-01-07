@@ -65,6 +65,14 @@ class MarketController {
     })
   }
 
+  def setMarketPrices(prices: Map[String, Double]): Unit = {
+    items.clear()
+    prices.foreach { case (name, price) =>
+      items.add(new Item(name, price, 0)) // Assuming quantity is 0 initially
+    }
+    itemTableView.refresh()
+  }
+
   private def updateCharacterStats(): Unit = {
     selectedCharacter.foreach { character =>
       cashLabel.setText(s"${character.cash}")
@@ -81,7 +89,7 @@ class MarketController {
     if (selectedItem != null && quantity > 0) {
       selectedCharacter.foreach { character =>
         val totalCost = selectedItem.price * quantity
-        if (character.cash >= totalCost) {
+        if (character.cash >= totalCost.toInt) {
           if (selectedItem.quantity >= quantity) {
             if (character.caravan.currentSize + quantity <= character.caravan.maxSize) {
               val updatedItem = selectedItem.copy(quantity = selectedItem.quantity - quantity)
@@ -95,7 +103,7 @@ class MarketController {
                 case None => character.caravan.items :+ selectedItem.copy(quantity = quantity)
               }
               val updatedCharacter = character.copy(
-                cash = character.cash - totalCost,
+                cash = character.cash - totalCost.toInt,
                 caravan = character.caravan.copy(
                   items = updatedCaravanItems,
                   currentSize = character.caravan.currentSize + quantity
@@ -134,7 +142,7 @@ class MarketController {
             val updatedItem = selectedItem.copy(quantity = selectedItem.quantity + quantity)
             items.set(items.indexOf(selectedItem), updatedItem)
             val updatedCharacter = character.copy(
-              cash = character.cash + (selectedItem.price * quantity),
+              cash = character.cash + (selectedItem.price * quantity).toInt,
               caravan = character.caravan.copy(
                 items = character.caravan.items.map {
                   case i if i.name == item.name => i.copy(quantity = i.quantity - quantity)
