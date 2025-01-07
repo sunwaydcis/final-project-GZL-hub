@@ -1,21 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<VBox alignment="TOP_CENTER" prefHeight="607.0" prefWidth="514.0" spacing="10" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.makery.address.view.SelectLocationController">
-    <padding>
-        <Insets bottom="10" left="10" right="10" top="10" />
-    </padding>
+<AnchorPane prefHeight="607.0" prefWidth="514.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.makery.address.view.SelectLocationController" stylesheets="@../../../../map.css">
     <children>
-        <Label style="-fx-font-size: 20px;" text="Select Location" />
-        <Button fx:id="selectLocationButton" onAction="#handleSelectPortArthur" text="Select Port Arthur" />
-        <Button onAction="#handleSelectTaiPan" text="Select Tai-Pan" />
-        <Button onAction="#handleSelectEdamame" text="Select Edamame" />
-        <Button onAction="#handleSelectLamaSut" text="Select Lama-Sut" />
-        <Button onAction="#handleSelectKingston" text="Select Kingston" />
-        <Button fx:id="backButton" onAction="#handleBack" text="Back" />
+        <Label styleClass="map-label" text="Select Location" layoutX="200" layoutY="20" />
+        <Button fx:id="selectLocationButton" onAction="#handleSelectPortArthur" text="Select Port Arthur" styleClass="map-button" layoutX="100" layoutY="100" />
+        <Button onAction="#handleSelectTaiPan" text="Select Tai-Pan" styleClass="map-button" layoutX="200" layoutY="150" />
+        <Button onAction="#handleSelectEdamame" text="Select Edamame" styleClass="map-button" layoutX="300" layoutY="200" />
+        <Button onAction="#handleSelectLamaSut" text="Select Lama-Sut" styleClass="map-button" layoutX="400" layoutY="250" />
+        <Button onAction="#handleSelectKingston" text="Select Kingston" styleClass="map-button" layoutX="500" layoutY="300" />
+        <Button fx:id="backButton" onAction="#handleBack" text="Back" styleClass="map-button" layoutX="20" layoutY="550" />
     </children>
-</VBox>
+</AnchorPane>

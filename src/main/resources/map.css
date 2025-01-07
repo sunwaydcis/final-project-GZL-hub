@@ -1,0 +1,27 @@
+/* map.css */
+
+.root {
+    -fx-background-image: url('assets/worldmap.png');
+    -fx-background-size: cover;
+    -fx-padding: 20px;
+}
+
+.map-button {
+    -fx-background-color: rgba(255, 255, 255, 0.8);
+    -fx-text-fill: black;
+    -fx-font-size: 14px;
+    -fx-padding: 10px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-border-color: black;
+    -fx-border-width: 1px;
+}
+
+.map-label {
+    -fx-font-size: 20px;
+    -fx-text-fill: white;
+    -fx-background-color: rgba(0, 0, 0, 0.5);
+    -fx-padding: 10px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
