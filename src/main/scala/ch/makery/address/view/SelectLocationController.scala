@@ -41,8 +41,17 @@ class SelectLocationController {
 
   @FXML
   private def handleBack(): Unit = {
+    GameState.goBack()
+    val fxmlFile = GameState.getCurrentCity match {
+      case "Port Arthur" => "/ch/makery/address/view/portArthur.fxml"
+      case "Tai-Pan" => "/ch/makery/address/view/taiPan.fxml"
+      case "Edamame" => "/ch/makery/address/view/edamame.fxml"
+      case "Lama-Sut" => "/ch/makery/address/view/lamaSut.fxml"
+      case "Kingston" => "/ch/makery/address/view/kingston.fxml"
+      case _ => "/ch/makery/address/view/playerUI.fxml"
+    }
     try {
-      val loader = new FXMLLoader(getClass.getResource("/ch/makery/address/view/playerUI.fxml"))
+      val loader = new FXMLLoader(getClass.getResource(fxmlFile))
       val root = loader.load[Parent]
       val stage = backButton.getScene.getWindow.asInstanceOf[Stage]
       stage.getScene.setRoot(root)

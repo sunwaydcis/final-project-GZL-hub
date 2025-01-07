@@ -21,7 +21,7 @@
 
         <!-- Right Map -->
         <AnchorPane stylesheets="@../../../../style.css" HBox.hgrow="ALWAYS">
-            <Pane fx:id="mapPane" styleClass="map-pane" stylesheets="@../../../../style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <Pane fx:id="mapPane2" styleClass="map-pane2" stylesheets="@../../../../style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                 <HBox alignment="CENTER" layoutX="10.0" layoutY="14.0" prefHeight="70.0" prefWidth="339.0">
                 </HBox>
             </Pane>

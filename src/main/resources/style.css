@@ -45,4 +45,10 @@
     -fx-background-position: center;
 }
 
+.map-pane2 {
+    -fx-background-image: url('/assets/background3.png');
+    -fx-background-size: cover;
+    -fx-background-position: center;
+}
+
 

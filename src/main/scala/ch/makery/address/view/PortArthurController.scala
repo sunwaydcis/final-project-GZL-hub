@@ -17,6 +17,7 @@ class PortArthurController {
 
   @FXML
   private def handleGoToBank(): Unit = {
+    GameState.updateMarketPrices("Port Arthur")
     try {
       val loader = new FXMLLoader(getClass.getResource("/ch/makery/address/view/bank.fxml"))
       val root = loader.load[Parent]
@@ -30,6 +31,7 @@ class PortArthurController {
 
   @FXML
   private def handleGoToMoneylender(): Unit = {
+    GameState.updateMarketPrices("Port Arthur")
     try {
       val loader = new FXMLLoader(getClass.getResource("/ch/makery/address/view/moneylender.fxml"))
       val root = loader.load[Parent]

@@ -1,10 +1,13 @@
 package ch.makery.address.model
 
 import scala.collection.immutable.ListMap
+import scala.collection.mutable.Stack
 
 object GameState {
   private var turn: Int = 0
   private var currentCity: String = "Starting City"
+  private val cityHistory: Stack[String] = Stack()
+
   private val marketPrices: Map[String, Map[String, Double]] = Map(
     "Port Arthur" -> ListMap(
       "Tea" -> 30.0,
@@ -26,13 +29,27 @@ object GameState {
   }
 
   def updateMarketPrices(location: String): Unit = {
-    currentCity = location
+    if (currentCity != location) {
+      cityHistory.push(currentCity)
+      currentCity = location
+    }
     val prices = marketPrices.getOrElse(location, Map())
-    // Logic to update the market prices in the UI or game state
     println(s"Updated market prices for $location: $prices")
   }
 
   def getCurrentMarketPrices: Map[String, Double] = {
     marketPrices.getOrElse(currentCity, Map())
   }
+
+  def goBack(): Unit = {
+    if (cityHistory.nonEmpty) {
+      val previousCity = cityHistory.pop()
+      if (marketPrices.contains(previousCity)) {
+        currentCity = previousCity
+      }
+    }
+    println(s"Current city after going back: $currentCity")
+  }
+
+  def getCurrentCity: String = currentCity
 }
