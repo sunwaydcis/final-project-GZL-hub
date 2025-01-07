@@ -5,7 +5,7 @@ import javafx.scene.control.{Button, Label, TableColumn, TableView, TextField}
 import javafx.collections.ObservableList
 import javafx.scene.Parent
 import javafx.stage.Stage
-import ch.makery.address.model.{Character, Item, MarketState, SelectedCharacter}
+import ch.makery.address.model.{Character, GameState, Item, MarketState, SelectedCharacter}
 import javafx.beans.property.SimpleStringProperty
 
 class MarketController {
@@ -169,8 +169,13 @@ class MarketController {
 
   @FXML
   def handleBack(): Unit = {
+    GameState.goBack()
+    val fxmlFile = GameState.getCurrentCity match {
+      case "Port Arthur" => "/ch/makery/address/view/portArthur.fxml"
+      case _ => "/ch/makery/address/view/playerUI.fxml"
+    }
     try {
-      val loader = new FXMLLoader(getClass.getResource("/ch/makery/address/view/playerUI.fxml"))
+      val loader = new FXMLLoader(getClass.getResource(fxmlFile))
       val root: Parent = loader.load()
       val stage = backButton.getScene.getWindow.asInstanceOf[Stage]
       stage.getScene.setRoot(root)

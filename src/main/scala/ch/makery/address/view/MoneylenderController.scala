@@ -2,9 +2,9 @@ package ch.makery.address.view
 
 import javafx.fxml.{FXML, FXMLLoader}
 import javafx.scene.Parent
-import javafx.scene.control.{Label, TextField}
+import javafx.scene.control.{Button, Label, TextField}
 import javafx.stage.Stage
-import ch.makery.address.model.{Moneylender, SelectedCharacter}
+import ch.makery.address.model.{GameState, Moneylender, SelectedCharacter}
 
 class MoneylenderController {
 
@@ -24,6 +24,8 @@ class MoneylenderController {
   private var debtLabel: Label = _
   @FXML
   private var cargoSizeLabel: Label = _
+  @FXML
+  private var backButton: Button = _
 
   private var moneylender = Moneylender(availableFunds = 10000.0) // Example initial funds
 
@@ -74,11 +76,16 @@ class MoneylenderController {
   }
 
   @FXML
-  private def handleBack(): Unit = {
+  def handleBack(): Unit = {
+    GameState.goBack()
+    val fxmlFile = GameState.getCurrentCity match {
+      case "Port Arthur" => "/ch/makery/address/view/portArthur.fxml"
+      case _ => "/ch/makery/address/view/playerUI.fxml"
+    }
     try {
-      val loader = new FXMLLoader(getClass.getResource("/ch/makery/address/view/playerUI.fxml"))
-      val root = loader.load[Parent]
-      val stage = availableFundsLabel.getScene.getWindow.asInstanceOf[Stage]
+      val loader = new FXMLLoader(getClass.getResource(fxmlFile))
+      val root: Parent = loader.load()
+      val stage = backButton.getScene.getWindow.asInstanceOf[Stage]
       stage.getScene.setRoot(root)
     } catch {
       case e: Exception =>

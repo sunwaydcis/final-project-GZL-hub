@@ -21,7 +21,7 @@
         <TextField fx:id="repayAmountField" />
         <Button onAction="#handleRepay" text="Repay" />
         <Label fx:id="errorMessageLabel" style="-fx-text-fill: red;" />
-        <Button onAction="#handleBack" text="Back" />
+        <Button fx:id="backButton" onAction="#handleBack" text="Back" />
         <Label style="-fx-font-size: 16px;" text="Character Stats" />
         <Label text="Cash:" />
         <Label fx:id="cashLabel" />
