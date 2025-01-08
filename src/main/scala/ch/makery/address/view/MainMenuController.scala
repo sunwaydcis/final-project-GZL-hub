@@ -17,6 +17,7 @@ class MainMenuController {
   @FXML
   private var quitButton: Button = _
 
+  // Handle the play button action
   @FXML
   def handlePlayButtonAction(): Unit = {
     try {
@@ -36,6 +37,7 @@ class MainMenuController {
     }
   }
 
+  // Handle the tutorial button action
   @FXML
   def handleTutorialButtonAction(): Unit = {
     try {
@@ -54,6 +56,7 @@ class MainMenuController {
     }
   }
 
+  // QUIT
   @FXML
   def handleQuitButtonAction(): Unit = {
     // Close the application

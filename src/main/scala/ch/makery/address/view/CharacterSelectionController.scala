@@ -19,6 +19,7 @@ class CharacterSelectionController {
   private var characterButton3: Button = _
 
   @FXML
+    // Load the game character stats
   def handleCharacterSelection(): Unit = {
     try {
       val source = characterButton.getScene.getFocusOwner.asInstanceOf[Button]

@@ -23,14 +23,15 @@ class BankController {
   @FXML
   private var backButton: Button = _
 
+  // The player selected chraracter
   private var selectedCharacter: Option[Character] = _
 
   def initialize(): Unit = {
     selectedCharacter = SelectedCharacter.character
-    updateCharacterStats()
-    generateDialogue()
+    updateCharacterStats() // Update the character stats
+    generateDialogue() // Generate a random dialogue
   }
-
+  
   private def updateCharacterStats(): Unit = {
     selectedCharacter.foreach { character =>
       cashLabel.setText(s"Cash: ${character.cash}")
@@ -49,6 +50,7 @@ class BankController {
     dialogueLabel.setText(dialogues(Random.nextInt(dialogues.length)))
   }
 
+  // Handles the deposit action
   @FXML
   def handleDeposit(): Unit = {
     val amount = amountField.getText.toInt
@@ -65,6 +67,7 @@ class BankController {
     }
   }
 
+  // Handles the withdrawal action
   @FXML
   def handleWithdraw(): Unit = {
     val amount = amountField.getText.toInt
@@ -80,7 +83,7 @@ class BankController {
       }
     }
   }
-
+  // Handles the back action
   @FXML
   def handleBack(): Unit = {
     GameState.goBack()
