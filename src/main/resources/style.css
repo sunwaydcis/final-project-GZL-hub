@@ -63,4 +63,11 @@
     -fx-background-position: center;
 }
 
+.map-pane5 {
+    -fx-background-image: url('/assets/lama.png');
+    -fx-background-size: cover;
+    -fx-background-position: center;
+}
+
+
 

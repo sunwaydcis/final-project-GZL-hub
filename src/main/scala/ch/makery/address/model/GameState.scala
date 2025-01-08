@@ -37,7 +37,15 @@ object GameState {
       "Spices" -> 5000.0,
       "Angel Dust" -> 9000.0
     ),
-    "Lama-Sut" -> ListMap("Item1" -> 18.0, "Item2" -> 28.0),
+    "Lama-Sut" -> ListMap(
+      "Tea" -> 15.0,
+      "Iron Ore" -> 25.0,
+      "Parchment" -> 400.0,
+      "Silk" -> 700.0,
+      "Gunpowder" -> 2500.0,
+      "Spices" -> 2100.0,
+      "Angel Dust" -> 25000.0
+    ),
     "Kingston" -> ListMap("Item1" -> 14.0, "Item2" -> 24.0)
   )
 
