@@ -1,7 +1,7 @@
 package ch.makery.address.controller
 
 import javafx.fxml.{FXML, FXMLLoader}
-import javafx.scene.control.{Label, ListView}
+import javafx.scene.control.{Alert, ButtonType, Label, ListView}
 import javafx.scene.image.{Image, ImageView}
 import ch.makery.address.model.{Character, GameState, SelectedCharacter}
 import javafx.scene.Parent
@@ -132,6 +132,23 @@ class PlayerUIController {
     } catch {
       case e: Exception =>
         e.printStackTrace()
+    }
+  }
+
+  def showWinningAlert(): Unit = {
+    val alert = new Alert(Alert.AlertType.CONFIRMATION)
+    alert.setTitle("Congratulations!")
+    alert.setHeaderText("You have reached a net worth of 1,000,000!")
+    alert.setContentText("Do you want to continue playing or exit the game?")
+
+    val continueButton = new ButtonType("Continue")
+    val exitButton = new ButtonType("Exit")
+    alert.getButtonTypes.setAll(continueButton, exitButton)
+
+    val result = alert.showAndWait()
+    if (result.isPresent && result.get == exitButton) {
+      val stage = alert.getDialogPane.getScene.getWindow.asInstanceOf[Stage]
+      stage.close()
     }
   }
 }

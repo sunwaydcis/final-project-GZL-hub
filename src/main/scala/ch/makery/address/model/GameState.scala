@@ -1,5 +1,6 @@
 package ch.makery.address.model
 
+import ch.makery.address.controller.PlayerUIController
 import scala.collection.immutable.ListMap
 import scala.collection.mutable.Stack
 
@@ -61,6 +62,7 @@ object GameState {
     turn += 1
     increaseDebt()
     applyInterest()
+    checkWinningCondition()
   }
 
   private def increaseDebt(): Unit = {
@@ -75,6 +77,16 @@ object GameState {
       val interest = (character.bank * 0.05).toInt
       val updatedCharacter = character.copy(bank = character.bank + interest)
       SelectedCharacter.character = Some(updatedCharacter)
+    }
+  }
+
+  private def checkWinningCondition(): Unit = {
+    SelectedCharacter.character.foreach { character =>
+      val netWorth = character.cash + character.bank - character.debt
+      if (netWorth >= 50000) {
+        // Trigger the alert to the player
+        new PlayerUIController().showWinningAlert()
+      }
     }
   }
 
