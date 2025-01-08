@@ -15,6 +15,7 @@
                 <Button onAction="#handleSelectEdamame" styleClass="map-button" text="Edamame" />
                 <Button onAction="#handleSelectLamaSut" styleClass="map-button" text="Lama-Sut" />
                 <Button onAction="#handleSelectKingston" styleClass="map-button" text="Kingston" />
+                <Button fx:id="selectStartingCityButton" onAction="#handleSelectStartingCity" styleClass="map-button" text="Starting City" />
                 <Button fx:id="backButton" onAction="#handleBack" styleClass="map-button" text="Back" />
             </children>
         </VBox>

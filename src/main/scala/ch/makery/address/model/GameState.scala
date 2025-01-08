@@ -6,17 +6,18 @@ import scala.collection.mutable.Stack
 object GameState {
   private var turn: Int = 0
   private var currentCity: String = "Starting City"
+  private var startingCity: String = "Starting City" // Added starting city
   private val cityHistory: Stack[String] = Stack()
 
   private val marketPrices: Map[String, Map[String, Double]] = Map(
     "Port Arthur" -> ListMap(
-      "Tea" -> 30.0,
+      "Tea" -> 15.0,
       "Iron Ore" -> 100.0,
       "Parchment" -> 150.0,
-      "Silk" -> 900.0,
-      "Gunpowder" -> 2500.0,
+      "Silk" -> 700.0,
+      "Gunpowder" -> 2750.0,
       "Spices" -> 3500.0,
-      "Angel Dust" -> 99999.0
+      "Angel Dust" -> 11000.0
     ),
     "Tai-Pan" -> ListMap("Item1" -> 15.0, "Item2" -> 25.0),
     "Edamame" -> ListMap("Item1" -> 12.0, "Item2" -> 22.0),
@@ -52,4 +53,6 @@ object GameState {
   }
 
   def getCurrentCity: String = currentCity
+
+  def getStartingCity: String = startingCity // Added method to get starting city
 }

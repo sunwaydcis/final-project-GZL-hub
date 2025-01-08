@@ -15,6 +15,9 @@ class SelectLocationController {
   private var selectLocationButton: Button = _
 
   @FXML
+  private var selectStartingCityButton: Button = _
+
+  @FXML
   private def handleSelectPortArthur(): Unit = {
     selectLocation("Port Arthur")
   }
@@ -37,6 +40,12 @@ class SelectLocationController {
   @FXML
   private def handleSelectKingston(): Unit = {
     selectLocation("Kingston")
+  }
+
+  @FXML
+  private def handleSelectStartingCity(): Unit = {
+    val startingCity = GameState.getStartingCity
+    selectLocation(startingCity)
   }
 
   @FXML
