@@ -83,7 +83,7 @@ object GameState {
   private def checkWinningCondition(): Unit = {
     SelectedCharacter.character.foreach { character =>
       val netWorth = character.cash + character.bank - character.debt
-      if (netWorth >= 50000) {
+      if (netWorth >= 1000000) {
         // Trigger the alert to the player
         new PlayerUIController().showWinningAlert()
       }

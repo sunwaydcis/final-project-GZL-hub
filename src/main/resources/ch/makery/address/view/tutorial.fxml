@@ -8,6 +8,11 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.makery.address.controller.TutorialController">
     <VBox alignment="CENTER" spacing="20.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
         <Label text="Welcome to the Tutorial!" />
+        <Label text="Step 1: Learn how to navigate the interface." />
+        <Label text="Step 2: Understand the market prices and trading system." />
+        <Label text="Step 3: Manage your resources effectively." />
+        <Label text="Step 4: Keep an eye on your debt and bank balance." />
+        <Label text="Step 5: Aim to reach a net worth of 1,000,000 to win the game." />
         <Button fx:id="backButton" text="Back" onAction="#handleBackButtonAction" />
     </VBox>
 </AnchorPane>
