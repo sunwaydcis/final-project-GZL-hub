@@ -51,4 +51,10 @@
     -fx-background-position: center;
 }
 
+.map-pane3 {
+    -fx-background-image: url('/assets/taipan.png');
+    -fx-background-size: cover;
+    -fx-background-position: center;
+}
+
 

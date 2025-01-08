@@ -19,8 +19,24 @@ object GameState {
       "Spices" -> 3500.0,
       "Angel Dust" -> 11000.0
     ),
-    "Tai-Pan" -> ListMap("Item1" -> 15.0, "Item2" -> 25.0),
-    "Edamame" -> ListMap("Item1" -> 12.0, "Item2" -> 22.0),
+    "Tai-Pan" -> ListMap(
+      "Tea" -> 15.0,
+      "Iron Ore" -> 75.0,
+      "Parchment" -> 200.0,
+      "Silk" -> 900.0,
+      "Gunpowder" -> 2000.0,
+      "Spices" -> 3500.0,
+      "Angel Dust" -> 15000.0
+    ),
+    "Edamame" -> ListMap(
+      "Tea" -> 17.0,
+      "Iron Ore" -> 50.0,
+      "Parchment" -> 100.0,
+      "Silk" -> 1500.0,
+      "Gunpowder" -> 3000.0,
+      "Spices" -> 5000.0,
+      "Angel Dust" -> 9000.0
+    ),
     "Lama-Sut" -> ListMap("Item1" -> 18.0, "Item2" -> 28.0),
     "Kingston" -> ListMap("Item1" -> 14.0, "Item2" -> 24.0)
   )
