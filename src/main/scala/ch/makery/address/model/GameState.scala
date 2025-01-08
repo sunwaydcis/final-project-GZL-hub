@@ -46,7 +46,14 @@ object GameState {
       "Spices" -> 2100.0,
       "Angel Dust" -> 25000.0
     ),
-    "Kingston" -> ListMap("Item1" -> 14.0, "Item2" -> 24.0)
+    "Kingston" -> ListMap(
+      "Tea" -> 30.0,
+      "Iron Ore" -> 250.0,
+      "Parchment" -> 750.0,
+      "Silk" -> 1500.0,
+      "Gunpowder" -> 4000.0,
+      "Spices" -> 5000.0,
+      "Angel Dust" -> 35000.0    )
   )
 
   def consumeTurn(): Unit = {

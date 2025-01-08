@@ -69,5 +69,11 @@
     -fx-background-position: center;
 }
 
+.map-pane6 {
+    -fx-background-image: url('/assets/kingston.png');
+    -fx-background-size: cover;
+    -fx-background-position: center;
+}
+
 
 

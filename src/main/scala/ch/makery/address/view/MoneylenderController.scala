@@ -85,6 +85,7 @@ class MoneylenderController {
       case "Tai-Pan" => "/ch/makery/address/view/taiPan.fxml"
       case "Edamame" => "/ch/makery/address/view/edamame.fxml"
       case "Lama-Sut" => "/ch/makery/address/view/lamaSut.fxml"
+      case "Kingston" => "/ch/makery/address/view/kingston.fxml"
       case _ => "/ch/makery/address/view/playerUI.fxml"
     }
     try {
