@@ -53,7 +53,8 @@ object GameState {
       "Silk" -> 1500.0,
       "Gunpowder" -> 4000.0,
       "Spices" -> 5000.0,
-      "Angel Dust" -> 35000.0    )
+      "Angel Dust" -> 35000.0
+    )
   )
 
   def consumeTurn(): Unit = {
@@ -91,12 +92,6 @@ object GameState {
   }
 
   def goBack(): Unit = {
-    if (cityHistory.nonEmpty) {
-      val previousCity = cityHistory.pop()
-      if (marketPrices.contains(previousCity)) {
-        currentCity = previousCity
-      }
-    }
     println(s"Current city after going back: $currentCity")
   }
 
