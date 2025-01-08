@@ -57,4 +57,10 @@
     -fx-background-position: center;
 }
 
+.map-pane4 {
+    -fx-background-image: url('/assets/edamame.png');
+    -fx-background-size: cover;
+    -fx-background-position: center;
+}
+
 

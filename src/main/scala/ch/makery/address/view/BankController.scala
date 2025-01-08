@@ -87,6 +87,7 @@ class BankController {
     val fxmlFile = GameState.getCurrentCity match {
       case "Port Arthur" => "/ch/makery/address/view/portArthur.fxml"
       case "Tai-Pan" => "/ch/makery/address/view/taiPan.fxml"
+      case "Edamame" => "/ch/makery/address/view/edamame.fxml"
       case _ => "/ch/makery/address/view/playerUI.fxml"
     }
     try {
