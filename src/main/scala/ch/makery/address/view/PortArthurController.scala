@@ -31,12 +31,16 @@ class PortArthurController {
   @FXML
   private var avatarImageView: ImageView = _
 
+  @FXML
+  private var turnCounterLabel: Label = _
+
   private var selectedCharacter: Option[Character] = _
 
   def initialize(): Unit = {
     // Retrieve the selected character from the singleton object
     selectedCharacter = SelectedCharacter.character
     updateCharacterStats()
+    updateTurnCounter()
   }
 
   private def updateCharacterStats(): Unit = {
@@ -56,6 +60,10 @@ class PortArthurController {
         println(s"Image not found: $imagePath")
       }
     }
+  }
+
+  private def updateTurnCounter(): Unit = {
+    turnCounterLabel.setText(s"Turn: ${GameState.getTurn}")
   }
 
   @FXML

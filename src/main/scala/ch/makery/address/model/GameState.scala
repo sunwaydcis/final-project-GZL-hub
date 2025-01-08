@@ -6,7 +6,7 @@ import scala.collection.mutable.Stack
 object GameState {
   private var turn: Int = 0
   private var currentCity: String = "Starting City"
-  private var startingCity: String = "Starting City" // Added starting city
+  private var startingCity: String = "Starting City"
   private val cityHistory: Stack[String] = Stack()
 
   private val marketPrices: Map[String, Map[String, Double]] = Map(
@@ -27,6 +27,23 @@ object GameState {
 
   def consumeTurn(): Unit = {
     turn += 1
+    increaseDebt()
+    applyInterest()
+  }
+
+  private def increaseDebt(): Unit = {
+    SelectedCharacter.character.foreach { character =>
+      val increasedDebt = (character.debt * 1.1).toInt
+      SelectedCharacter.character = Some(character.copy(debt = increasedDebt))
+    }
+  }
+
+  private def applyInterest(): Unit = {
+    SelectedCharacter.character.foreach { character =>
+      val interest = (character.bank * 0.05).toInt
+      val updatedCharacter = character.copy(bank = character.bank + interest)
+      SelectedCharacter.character = Some(updatedCharacter)
+    }
   }
 
   def updateMarketPrices(location: String): Unit = {
@@ -54,5 +71,7 @@ object GameState {
 
   def getCurrentCity: String = currentCity
 
-  def getStartingCity: String = startingCity // Added method to get starting city
+  def getStartingCity: String = startingCity
+
+  def getTurn: Int = turn
 }

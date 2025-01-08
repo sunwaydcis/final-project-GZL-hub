@@ -3,7 +3,7 @@ package ch.makery.address.controller
 import javafx.fxml.{FXML, FXMLLoader}
 import javafx.scene.control.{Label, ListView}
 import javafx.scene.image.{Image, ImageView}
-import ch.makery.address.model.{Character, SelectedCharacter}
+import ch.makery.address.model.{Character, GameState, SelectedCharacter}
 import javafx.scene.Parent
 import javafx.stage.Stage
 
@@ -19,6 +19,8 @@ class PlayerUIController {
   private var debtLabel: Label = _
   @FXML
   private var cargoSizeLabel: Label = _
+  @FXML
+  private var turnCounterLabel: Label = _
 
   private var selectedCharacter: Option[Character] = _
 
@@ -26,6 +28,7 @@ class PlayerUIController {
     // Retrieve the selected character from the singleton object
     selectedCharacter = SelectedCharacter.character
     updateCharacterStats()
+    updateTurnCounter()
   }
 
   private def updateCharacterStats(): Unit = {
@@ -45,6 +48,10 @@ class PlayerUIController {
         println(s"Image not found: $imagePath")
       }
     }
+  }
+
+  private def updateTurnCounter(): Unit = {
+    turnCounterLabel.setText(s"Turn: ${GameState.getTurn}")
   }
 
   @FXML
@@ -114,6 +121,7 @@ class PlayerUIController {
       updateCharacterStats()
     }
   }
+
   @FXML
   private def handleSetCourse(): Unit = {
     try {

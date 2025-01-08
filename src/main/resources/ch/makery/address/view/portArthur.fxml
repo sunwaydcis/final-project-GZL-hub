@@ -17,6 +17,7 @@
             <Label fx:id="bankLabel" text="Bank:" />
             <Label fx:id="debtLabel" text="Debt:" />
             <Label fx:id="cargoSizeLabel" text="Cargo Size:" />
+            <Label fx:id="turnCounterLabel" text="Turn: 0" />
         </VBox>
 
         <!-- Right Map -->

@@ -39,7 +39,9 @@ class MoneylenderController {
   private def handleBorrow(): Unit = {
     val amountToBorrow = borrowAmountField.getText.toDouble
     SelectedCharacter.character.foreach { character =>
-      if (amountToBorrow > 0 && amountToBorrow <= moneylender.availableFunds) {
+      if (character.debt > 0) {
+        errorMessageLabel.setText("You cannot borrow more money until your existing debt is repaid.")
+      } else if (amountToBorrow > 0 && amountToBorrow <= moneylender.availableFunds) {
         moneylender = moneylender.copy(availableFunds = moneylender.availableFunds - amountToBorrow)
         val updatedCharacter = character.copy(
           cash = character.cash + amountToBorrow.toInt,

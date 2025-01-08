@@ -10,12 +10,8 @@ class SelectLocationController {
 
   @FXML
   private var backButton: Button = _
-
   @FXML
   private var selectLocationButton: Button = _
-
-  @FXML
-  private var selectStartingCityButton: Button = _
 
   @FXML
   private def handleSelectPortArthur(): Unit = {
