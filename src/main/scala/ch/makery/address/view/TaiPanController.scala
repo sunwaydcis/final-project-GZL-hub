@@ -2,7 +2,7 @@ package ch.makery.address.view
 
 import javafx.fxml.{FXML, FXMLLoader}
 import javafx.scene.Parent
-import javafx.scene.control.{Button, Label}
+import javafx.scene.control.{Button, Label, Alert, ButtonType}
 import javafx.scene.image.{Image, ImageView}
 import javafx.stage.Stage
 import ch.makery.address.controller.MarketController
@@ -124,5 +124,22 @@ class TaiPanController {
   private def updateMarketPricesUI(): Unit = {
     val prices = GameState.getCurrentMarketPrices
     marketPricesLabel.setText(prices.map { case (item, price) => s"$item: $$price" }.mkString("\n"))
+  }
+
+  def showWinningAlert(): Unit = {
+    val alert = new Alert(Alert.AlertType.CONFIRMATION)
+    alert.setTitle("Congratulations!")
+    alert.setHeaderText("You have reached a net worth of 1,000,000!")
+    alert.setContentText("Do you want to continue playing or exit the game?")
+
+    val continueButton = new ButtonType("Continue")
+    val exitButton = new ButtonType("Exit")
+    alert.getButtonTypes.setAll(continueButton, exitButton)
+
+    val result = alert.showAndWait()
+    if (result.isPresent && result.get == exitButton) {
+      val stage = alert.getDialogPane.getScene.getWindow.asInstanceOf[Stage]
+      stage.close()
+    }
   }
 }
