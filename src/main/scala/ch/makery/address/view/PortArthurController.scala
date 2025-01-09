@@ -107,8 +107,7 @@ class PortArthurController {
 
       // Pass the updated prices to the MarketController
       val marketController = loader.getController[MarketController]
-      marketController.setMarketPrices(GameState.getCurrentMarketPrices)
-    } catch {
+      marketController.setMarketPrices(GameState.getCurrentMarketPrices, GameState.getCurrentMarketQuantities)    } catch {
       case e: Exception =>
         e.printStackTrace()
     }

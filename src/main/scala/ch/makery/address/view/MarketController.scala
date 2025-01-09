@@ -65,10 +65,11 @@ class MarketController {
     })
   }
 
-  def setMarketPrices(prices: Map[String, Double]): Unit = {
+  def setMarketPrices(prices: Map[String, Double], quantities: Map[String, Int]): Unit = {
     items.clear()
     prices.foreach { case (name, price) =>
-      items.add(new Item(name, price, 0)) // Assuming quantity is 0 initially
+      val quantity = quantities.getOrElse(name, 0)
+      items.add(new Item(name, price, quantity))
     }
     itemTableView.refresh()
   }

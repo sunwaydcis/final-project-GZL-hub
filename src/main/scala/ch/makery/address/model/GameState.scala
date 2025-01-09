@@ -58,6 +58,54 @@ object GameState {
     )
   )
 
+  private val marketQuantities: Map[String, Map[String, Int]] = Map(
+    "Port Arthur" -> ListMap(
+      "Tea" -> 250,
+      "Iron Ore" -> 200,
+      "Parchment" -> 200,
+      "Silk" -> 150,
+      "Gunpowder" -> 100,
+      "Spices" -> 50,
+      "Angel Dust" -> 20
+    ),
+    "Tai-Pan" -> ListMap(
+      "Tea" -> 250,
+      "Iron Ore" -> 250,
+      "Parchment" -> 230,
+      "Silk" -> 150,
+      "Gunpowder" -> 50,
+      "Spices" -> 25,
+      "Angel Dust" -> 10
+    ),
+    "Edamame" -> ListMap(
+      "Tea" -> 250,
+      "Iron Ore" -> 250,
+      "Parchment" -> 200,
+      "Silk" -> 150,
+      "Gunpowder" -> 75,
+      "Spices" -> 50,
+      "Angel Dust" -> 25
+    ),
+    "Lama-Sut" -> ListMap(
+      "Tea" -> 250,
+      "Iron Ore" -> 200,
+      "Parchment" -> 150,
+      "Silk" -> 125,
+      "Gunpowder" -> 65,
+      "Spices" -> 50,
+      "Angel Dust" -> 45
+    ),
+    "Kingston" -> ListMap(
+      "Tea" -> 300,
+      "Iron Ore" -> 270,
+      "Parchment" -> 250,
+      "Silk" -> 200,
+      "Gunpowder" -> 100,
+      "Spices" -> 50,
+      "Angel Dust" -> 25
+    )
+  )
+
   def consumeTurn(): Unit = {
     turn += 1
     increaseDebt()
@@ -96,11 +144,17 @@ object GameState {
       currentCity = location
     }
     val prices = marketPrices.getOrElse(location, Map())
+    val quantities = marketQuantities.getOrElse(location, Map())
     println(s"Updated market prices for $location: $prices")
+    println(s"Updated market quantities for $location: $quantities")
   }
 
   def getCurrentMarketPrices: Map[String, Double] = {
     marketPrices.getOrElse(currentCity, Map())
+  }
+
+  def getCurrentMarketQuantities: Map[String, Int] = {
+    marketQuantities.getOrElse(currentCity, Map())
   }
 
   def goBack(): Unit = {

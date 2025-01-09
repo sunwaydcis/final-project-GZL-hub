@@ -101,8 +101,7 @@ class EdaController {
       scene.setRoot(root)
 
       val marketController = loader.getController[MarketController]
-      marketController.setMarketPrices(GameState.getCurrentMarketPrices)
-    } catch {
+      marketController.setMarketPrices(GameState.getCurrentMarketPrices, GameState.getCurrentMarketQuantities)    } catch {
       case e: Exception =>
         e.printStackTrace()
     }
