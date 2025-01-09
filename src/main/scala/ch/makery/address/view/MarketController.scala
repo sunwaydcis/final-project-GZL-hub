@@ -174,6 +174,7 @@ class MarketController {
     val fxmlFile = GameState.getCurrentCity match {
       case "Port Arthur" => "/ch/makery/address/view/portArthur.fxml"
       case "Tai-Pan" => "/ch/makery/address/view/taiPan.fxml"
+      case "Edamame" => "/ch/makery/address/view/edamame.fxml"
       case "Lama-Sut" => "/ch/makery/address/view/lamaSut.fxml"
       case "Kingston" => "/ch/makery/address/view/kingston.fxml"
       case _ => "/ch/makery/address/view/playerUI.fxml"
